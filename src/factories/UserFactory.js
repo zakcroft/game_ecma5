@@ -9,6 +9,6 @@ App.UserFactory = (function () {
     }
 
 
-    return UserFaccctory;
+    return UserFactory;
 
 })()
