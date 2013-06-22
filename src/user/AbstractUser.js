@@ -23,7 +23,7 @@ App.AbstractUser = (function(Abstract, utils){
 
 
    AbstractUser.prototype.move = function(){
-             throw new Error('Unimplemented method in '+ this.type);
+             throw new Error('Unimplemented method in abstract class'+ this.type);
    }
 
    AbstractUser.prototype.isLivingDead = function(){
