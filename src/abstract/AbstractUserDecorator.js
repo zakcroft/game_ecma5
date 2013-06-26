@@ -1,4 +1,6 @@
-/* UserDecorator abstract decorator class. */
+/* abstract class AbstractUserDecorator
+   extends Abstract
+   implements UserInterface */
 
 App.abstracts.AbstractUserDecorator = (function (Abstract, UserInterface, Interface, utils) {
 

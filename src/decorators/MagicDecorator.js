@@ -3,11 +3,6 @@ App.decorators.MagicDecorator = (function (UserDecorator, utils) {
     function MagicDecorator(user) {
         UserDecorator.apply(this, arguments);
 
-        Object.defineProperties(User, {
-            "invisibility": { writable: true, enumerable: true, configurable: true, value: null },
-            "strength": {  writable: true, enumerable: true, configurable: true, value: null }
-        });
-
 
     }
 

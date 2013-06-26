@@ -8,18 +8,18 @@ App.SimpleAvatarFactory = (function () {
            createAvatar:function(type){
                var avatar = null;
                switch(type) {
-                   case 'Magician':
-                       avatar = new Magician();
+                   case 'Wizard':
+                       avatar = new Wizard();
                        break;
                    case 'Warrior':
                        avatar = new Warrior();
                        break;
-                   case 'Dragon':
-                       avatar = new Dragon();
-                       break;
-                   case 'User':
-                   default:
-                       avatar = new User();
+//                   case 'Dragon':
+//                       avatar = new Dragon();
+//                       break;
+//                   case 'User':
+//                   default:
+//                       avatar = new User();
                }
 
                return avatar;

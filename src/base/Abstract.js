@@ -7,7 +7,7 @@ App.base.Abstract = (function(utils){
     }
 
     Abstract.prototype.init = function(){
-        throw new Error(this+' Class is not intended for init');
+        throw new Error(this.type+' Class is not intended for init');
     }
 
     Abstract.prototype.throwError = function(message){

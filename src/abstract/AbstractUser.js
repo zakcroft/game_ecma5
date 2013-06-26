@@ -20,7 +20,8 @@ App.abstracts.AbstractUser = (function (Abstract, utils) {
         this.age = age;
 
         // CONSTANT
-        var MAX_LIFESPAN_AGE = 250;
+        var NORMAL_LIFESPAN = 250;
+        var EXTENDED_LIFESPAN = 250;
     }
 
     utils.inheritsEC5(AbstractUser, Abstract);
@@ -30,21 +31,29 @@ App.abstracts.AbstractUser = (function (Abstract, utils) {
         throw new Error('Unimplemented method in abstract class' + this.type);
     }
 
-    AbstractUser.prototype.get_MAX_LIFESPAN_AGE = function () {
-        return MAX_LIFESPAN_AGE;
-    }
-
-    AbstractUser.prototype.isLivingDead = function () {
-        return this.age > 120;
-    }
-
     AbstractUser.prototype.increaseLifeSpan = function () {
-        this.age === this.get_MAX_LIFESPAN_AGE();
+        this.age === this.get_EXTENDED_LIFESPAN();
 
         // this cannot be changed back once granted
         Object.defineProperty(this, "lifeSpanExtended", {
             value: true, writable: false
         })
+    }
+
+    AbstractUser.prototype.isLivingDead = function(){
+        if(this.lifeSpanExtended) {
+            return this.age > EXTENDED_LIFESPAN;
+        } else{
+            return this.age > NORMAL_LIFESPAN;
+        }
+    }
+
+    AbstractUser.prototype.get_NORMAL_LIFESPAN = function () {
+        return this.get_NORMAL_LIFESPAN();
+    }
+
+    AbstractUser.prototype.get_EXTENDED_LIFESPAN = function () {
+        return this.get_EXTENDED_LIFESPAN();
     }
 
     return AbstractUser;

@@ -8,6 +8,10 @@ App.classes.User= (function (AbstractUser, utils) {
             "strength":{  writable: true, enumerable: true, configurable: true, value:null }
         });
 
+        this.abilities = [];
+        this.possessions = [];
+        this.statuses = []; // can have more than one, like healing, injured, flying
+
         this.init();
     }
 
@@ -18,16 +22,20 @@ App.classes.User= (function (AbstractUser, utils) {
     };
 
     User.prototype.move = function () {
-        return
-    },
+       this.position = this.position + 5;
+    }
 
-    User.prototype.isLivingDead = function(){
-            if(this.lifeSpanExtended) {
-                return this.age > 250;
-            } else{
-                _super.isLivingDead.call(this);
-            }
-     }
+    User.prototype.can = function(ability){
+        return this.abilities[ability];
+    }
+
+    User.prototype.has = function(possesion){
+        return this.possessions[possesion];
+    }
+
+    User.prototype.status = function(state){
+        return this.statuses[state];
+    }
 
     return User;
 
@@ -37,10 +45,14 @@ App.classes.User= (function (AbstractUser, utils) {
 App.interfaces.user = new App.base.Interface('User', ['move', 'isLivingDead', 'increaseLifeSpan', 'get_MAX_LIFESPAN_AGE']);
 
 
+
 // statics
 App.classes.User.isStronger = function(user1, user2){
-   return user1.strength > user2.strength;
+    return user1.strength > user2.strength;
 }
+
+
+
 
 
 
