@@ -8,7 +8,7 @@ App.classes.Warrior = (function (User, utils) {
     utils.inheritsEC5(Warrior, User);
 
     Warrior.prototype.init = function (settings) {
-
+        _super.init.call(this, settings);
     };
 
     Warrior.prototype.move = function () {

@@ -8,14 +8,14 @@ App.classes.Wizard = (function (User, utils) {
     utils.inheritsEC5(Wizard, User);
 
     Wizard.prototype.init = function (settings) {
-
+        _super.init.call(this, settings);
     };
 
     Wizard.prototype.move = function () {
-          if(this.can('fly') || this.has('carpet')){
+          if(this.can('fly') || this.has('magic_carpet')){
                   this.position = this.position + 20;
 
-          }else if(this.status('injured')){
+          }else if(this.status('injured')){ // use ENUMS????
 
               this.position = this.position + 1;
 
