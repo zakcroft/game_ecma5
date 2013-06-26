@@ -4,7 +4,7 @@ App.base.Interface = (function (name, methods) {
 
     if (arguments.length != 2) {
         throw new Error("Interface constructor called with " + arguments.length +
-            "arguments, but expected exactly 2.");
+            " arguments, but expected exactly 2.");
     }
 
     this.name = name;
@@ -17,7 +17,7 @@ App.base.Interface = (function (name, methods) {
         }
         this.methods.push(methods[i]);
     }
-})();
+})
 
 // Static class method.
 App.base.Interface.ensureImplements = (function (object) {
@@ -45,5 +45,5 @@ App.base.Interface.ensureImplements = (function (object) {
         }
     }
 
-})();
+})
 

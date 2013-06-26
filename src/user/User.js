@@ -1,4 +1,4 @@
-App.class.User= (function (AbstractUser, utils) {
+App.classes.User= (function (AbstractUser, utils) {
 
     function User() {
         AbstractUser.apply(this, arguments);
@@ -31,11 +31,11 @@ App.class.User= (function (AbstractUser, utils) {
 
     return User;
 
-})(App.base.AbstractUser,
+})(App.user.AbstractUser,
         App.utils)
 
 // interfaces
-App.interfaces.User = new Interface('User', ['move', 'isLivingDead', 'increaseLifeSpan', 'get_MAX_LIFESPAN_AGE']);
+App.user.interfaces.User = new App.base.Interface('User', ['move', 'isLivingDead', 'increaseLifeSpan', 'get_MAX_LIFESPAN_AGE']);
 
 
 // statics

@@ -66,7 +66,7 @@ App.SimpleAvatarFactory = (function () {
 
 
 
-    return AvatarFactory;
+    return SimpleAvatarFactory;
 
     var factory = new SimpleAvatarFactory();
     var magician = factory.createAvatar('Magician', decoration );

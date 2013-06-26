@@ -1,5 +1,3 @@
-App = Object.create(null);
-
 App.utils = (function (app) {
     "use strict"
 
