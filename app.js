@@ -12,7 +12,7 @@ App = (function createNameSpaces(){
     };
 
     // means configurable: false
-    Object.seal(ns);
+    Object.seal( ns);
 
     return ns;
 
