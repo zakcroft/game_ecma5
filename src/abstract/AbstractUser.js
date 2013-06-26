@@ -1,4 +1,4 @@
-App.user.AbstractUser = (function (Abstract, utils) {
+App.abstracts.AbstractUser = (function (Abstract, utils) {
 
     function AbstractUser(name, icon, age) {
         Abstract.call(this);

@@ -31,11 +31,11 @@ App.classes.User= (function (AbstractUser, utils) {
 
     return User;
 
-})(App.user.AbstractUser,
+})(App.abstracts.AbstractUser,
         App.utils)
 
 // interfaces
-App.user.interfaces.User = new App.base.Interface('User', ['move', 'isLivingDead', 'increaseLifeSpan', 'get_MAX_LIFESPAN_AGE']);
+App.interfaces.user = new App.base.Interface('User', ['move', 'isLivingDead', 'increaseLifeSpan', 'get_MAX_LIFESPAN_AGE']);
 
 
 // statics

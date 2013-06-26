@@ -1,5 +1,5 @@
 
 
 $(function(){
-    App.runtime = new App.class.User();
+    App.runtime = new App.classes.User();
 })
