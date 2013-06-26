@@ -20,6 +20,6 @@ App.decorators.MagicDecorator = (function (UserDecorator, utils) {
 
     return MagicDecorator;
 
-})(App.decorators.UserDecorator, App.utils);
+})(App.abstracts.UserDecorator, App.utils);
 
 
