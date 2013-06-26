@@ -1,7 +1,5 @@
-
-App = (function createNameSpaces(){
-
-    var ns = {
+// means configurable: false
+    Object.seal( App = {
         base: {},
         abstracts: {},
         interfaces:{},
@@ -9,12 +7,5 @@ App = (function createNameSpaces(){
         decorators:{},
         utils:{},
         runtime:{}
-    };
-
-    // means configurable: false
-    Object.seal( ns);
-
-    return ns;
-
-})();
+    });
 
