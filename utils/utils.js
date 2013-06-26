@@ -3,51 +3,52 @@ App = Object.create(null);
 App.utils = (function (app) {
     "use strict"
 
-        var createGettersAndSetters = function (obj, props) {
+    var createGettersAndSetters = function (obj, props) {
 
-            var allowed = null;
-            if (!obj || !props)  throw Error('Not enough parameters');
+        var allowed = null;
+        if (!obj || !props)  throw Error('Not enough parameters');
 
-            props.every(function (prop) {
-                console.log(prop);
-            })
-        };
+        props.every(function (prop) {
+            console.log(prop);
+        })
+    };
 
-        var mixin = function (obj, props) {
-            for (var prop in props) {
-                if (props.hasOwnProperty(prop)) {
-                    obj[prop] = props[prop];
-                }
+    var mixin = function (obj, props) {
+        for (var prop in props) {
+            if (props.hasOwnProperty(prop)) {
+                obj[prop] = props[prop];
             }
-        };
+        }
+    };
 
-        var clone = function(obj){
-            var c = {}
-            mixin(c, obj)
-            return c
+    var clone = function (obj) {
+        var c = {}
+        mixin(c, obj)
+        return c
+    }
+
+    var inherits = function (c, p) {
+
+        function __() {
+            this.constructor = c;
         }
 
-        var inherits = function (c, p) {
+        __.prototype = p.prototype;
 
-            function __() {
-                this.constructor = c;
-            }
-            __.prototype = p.prototype;
+        c.prototype = new __();
 
-            c.prototype = new __();
+        c.prototype._super = p.prototype;
 
-            c.prototype._super = p.prototype;
+    }
 
-        }
+    var inheritsEC5 = function (c, p) {
 
-        var inheritsEC5 = function (c, p) {
-
-             // is this right?
+            // is this right?
             if (Object.isFrozen(p.prototype)) {
                 throw new TypeError("Extending this class is forbidden");
             }
 
-           // however this is meant to be slower that inherits part above
+            // however this is meant to be slower that inherits part above
             //http://jsperf.com/object-create-vs-constructor-vs-object-literal/7
             c.prototype = Object.create(p.prototype)
 
@@ -66,16 +67,24 @@ App.utils = (function (app) {
             //  Object.getOwnPropertyDescriptor(User.prototype, 'constructor')
             //      => Object {value: function, writable: false, enumerable: false, configurable: false}
 
-            }
+        },
 
-        return {
-            //createGettersAndSetters: createGettersAndSetters,
-            mixin:mixin,
-            clone:clone,
-            inherits: inherits,
-            inheritsEC5:inheritsEC5
+        isType = function (obj, type) {
+            return obj && type ? obj instanceof type : function () {
+                return
+                throw Error(obj.type + ' is not of type ' + type.type)
+            }
         }
-    })(App);
+
+    return {
+        //createGettersAndSetters: createGettersAndSetters,
+        mixin: mixin,
+        clone: clone,
+        inherits: inherits,
+        inheritsEC5: inheritsEC5,
+        isType: isType
+    }
+})(App);
 
 //function Point(x, y){
 //    return Object.freeze({

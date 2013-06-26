@@ -1,4 +1,4 @@
-App.Abstract = (function(utils){
+App.base.Abstract = (function(utils){
 
     function Abstract(){
         Object.defineProperty(this, "type", {
@@ -14,7 +14,7 @@ App.Abstract = (function(utils){
         throw new Error('Error in '+this.type+'. '+message);
     }
 
-    Abstract.prototype.makeMandatory = function(prop){
+    Abstract.prototype.makePropertyMandatory = function(prop){
         return prop? prop:  this.throwError('mandatory property not supplied in '+this.type)
     }
 

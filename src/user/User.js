@@ -1,7 +1,7 @@
-App.User = (function (_super, utils) {
+App.class.User= (function (AbstractUser, utils) {
 
     function User() {
-        _super.apply(this, arguments);
+        AbstractUser.apply(this, arguments);
 
         Object.defineProperties(User,  {
             "invisibility": { writable: true, enumerable: true, configurable: true, value:null },
@@ -11,40 +11,38 @@ App.User = (function (_super, utils) {
         this.init();
     }
 
-    utils.inheritsEC5(User, _super);
+    utils.inheritsEC5(User, AbstractUser);
 
     User.prototype.init = function (settings) {
 
     };
 
     User.prototype.move = function () {
-        _super.prototype.move.call(this, 5);
-        alert("goodbye from ");
+        return
     },
 
     User.prototype.isLivingDead = function(){
             if(this.lifeSpanExtended) {
                 return this.age > 250;
             } else{
-                _super.prototype.isLivingDead.call();
+                _super.isLivingDead.call(this);
             }
      }
 
     return User;
 
-})(App.AbstractUser,
+})(App.base.AbstractUser,
         App.utils)
 
+// interfaces
+App.interfaces.User = new Interface('User', ['move', 'isLivingDead', 'increaseLifeSpan', 'get_MAX_LIFESPAN_AGE']);
 
 
 // statics
-
-App.User.isType = function(obj, type){
-     return obj && type? obj instanceof type: 'not enough parameters';
+App.classes.User.isStronger = function(user1, user2){
+   return user1.strength > user2.strength;
 }
 
-// user  = new App.User()
-//App.User.isType(user, App.User) => true
 
 
 
