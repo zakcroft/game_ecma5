@@ -42,8 +42,9 @@ App.classes.User= (function (AbstractUser, utils) {
 
 })(App.abstracts.AbstractUser, App.utils)
 
+
 // interfaces
-App.interfaces.user = new App.base.Interface('User', ['move', 'isLivingDead', 'increaseLifeSpan', 'get_MAX_LIFESPAN_AGE']);
+App.interfaces.user = new App.base.Interface('User', ['move','can', 'has', 'status', 'isLivingDead', 'increaseLifeSpan', 'get_EXTENDED_LIFESPAN']);
 
 
 

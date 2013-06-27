@@ -1,6 +1,6 @@
-App.decorators.MagicDecorator = (function (UserDecorator, utils) {
+App.decorators.MasterDecorator = (function (UserDecorator, utils) {
 
-    function MagicDecorator(user) {
+    function MasterDecorator(user) {
         UserDecorator.call(this, user);
 
 
@@ -8,7 +8,7 @@ App.decorators.MagicDecorator = (function (UserDecorator, utils) {
 
     utils.inheritsEC5(MagicDecorator, UserDecorator);
 
-    MagicDecorator.prototype.castSpell = function(target) {
+    MasterDecorator.prototype.castSpell = function(target) {
         return target.die();
     };
 
@@ -16,5 +16,4 @@ App.decorators.MagicDecorator = (function (UserDecorator, utils) {
     return MagicDecorator;
 
 })(App.abstracts.AbstractUserDecorator, App.utils);
-
 

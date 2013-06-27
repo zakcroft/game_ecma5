@@ -1,36 +1,44 @@
 App.classes.SimpleAvatarFactory = (function (classes) {
 
-    function SimpleAvatarFactory(args) {
-        //var Avatar =  Array.prototype.slice(0, arguments);
-    }
+    function SimpleAvatarFactory() {
+
+    };
+
+    //extend(SimpleAvatarFactory, Avatar); ?? is this avatar user or abstract user???
+
 
     SimpleAvatarFactory.prototype = {
+
         // its better to have a settings object to pass up the hierarchy as easily scaled for
         // adding new parameters at any level.
 
         createAvatar: function (type, settings, decoration) {
-            var avatar = null;
-            switch (type) {
-                case 'Wizard':
-                    avatar = new classes.Wizard(settings);
-                    break;
-                case 'Warrior':
-                    avatar = new classes.Warrior(settings);
-                    break;
-//                   case 'Dragon':
-//                       avatar = new Dragon();
-//                       break;
-//                   case 'User':
-//                   default:
-//                       avatar = new User();
-            }
-            //App.base.Interface.ensureImplements(avatar, App.interfaces.user );
 
+            var avatar = new SimpleAvatarFactory.avatars[type](settings);
+
+            App.base.Interface.ensureImplements(avatar, App.interfaces.user);
 
             return avatar;
-
         }
     }
+
+
+    // Avatar name to class name mapping.
+    SimpleAvatarFactory.avatars = {
+        'Wizard': classes.Wizard,
+        'Warrior': classes.Warrior
+        //'Dragon': Dragon
+    };
+
+    // Decorators name to decorator class name mapping.
+    SimpleAvatarFactory.decorators = {
+
+//        'master': Master,
+//        'spirit_invoker': SpiritInvoker,
+//        'tree_talker': TreeTalker,
+//        'teleport': Teleport
+    };
+
 
     return SimpleAvatarFactory;
 

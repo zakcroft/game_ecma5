@@ -2,6 +2,7 @@ App.classes.Wizard = (function (User, utils) {
 
     function Wizard(settings) {
         User.call(this, settings);
+
         this.init();
     }
 

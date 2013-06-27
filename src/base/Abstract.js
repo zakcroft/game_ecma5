@@ -2,7 +2,7 @@ App.base.Abstract = (function(utils){
 
     function Abstract(){
         Object.defineProperty(this, "type", {
-            value: this.constructor.toString().slice(0, this.constructor.toString().indexOf(')')+1)
+            value: this.constructor.toString().slice(this.constructor.toString().indexOf('function')+8, this.constructor.toString().indexOf('('))
         })
     }
 

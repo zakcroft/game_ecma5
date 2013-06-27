@@ -31,7 +31,7 @@ App.base.Interface.ensureImplements = (function (object) {
 
     for (var i = 1, len = arguments.length; i < len; i++) {
         var interface = arguments[i];
-        if (interface.constructor !== Interface) {
+        if (interface.constructor !== this) {
             throw new Error("Function Interface.ensureImplements expects arguments"
                 + "two and above to be instances of Interface.");
         }

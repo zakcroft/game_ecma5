@@ -34,6 +34,10 @@ App.abstracts.AbstractUser = (function (Abstract, utils) {
         throw new Error('Unimplemented method in abstract class' + this.type);
     }
 
+//    AbstractUser.prototype.fight = function () {
+//        throw new Error('Unimplemented method in abstract class' + this.type);
+//    }
+
     AbstractUser.prototype.increaseLifeSpan = function () {
         this.age === this.get_EXTENDED_LIFESPAN();
 
