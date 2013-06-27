@@ -1,7 +1,8 @@
 App.classes.User= (function (AbstractUser, utils) {
 
-    function User() {
-        AbstractUser.apply(this, arguments);
+    function User(settings) {
+
+        AbstractUser.call(this, settings);
 
         Object.defineProperties(User,  {
             "invisibility": { writable: true, enumerable: true, configurable: true, value:null },

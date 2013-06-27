@@ -1,14 +1,14 @@
 App.classes.Wizard = (function (User, utils) {
 
-    function Wizard() {
-        User.apply(this, arguments);
+    function Wizard(settings) {
+        User.call(this, settings);
         this.init();
     }
 
     utils.inheritsEC5(Wizard, User);
 
     Wizard.prototype.init = function (settings) {
-        _super.init.call(this, settings);
+       // _super.init.call(this, settings);
     };
 
     Wizard.prototype.move = function () {

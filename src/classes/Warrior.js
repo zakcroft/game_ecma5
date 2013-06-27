@@ -1,14 +1,14 @@
 App.classes.Warrior = (function (User, utils) {
 
-    function Wizard() {
-        User.apply(this, arguments);
+    function Warrior(settings) {
+        User.call(this, settings);
         this.init();
     }
 
     utils.inheritsEC5(Warrior, User);
 
     Warrior.prototype.init = function (settings) {
-        _super.init.call(this, settings);
+        //_super.init.call(this, settings);
     };
 
     Warrior.prototype.move = function () {

@@ -1,31 +1,41 @@
-App.SimpleAvatarFactory = (function () {
+App.classes.SimpleAvatarFactory = (function (classes) {
 
     function SimpleAvatarFactory(args) {
-           //var Avatar =  Array.prototype.slice(0, arguments);
+        //var Avatar =  Array.prototype.slice(0, arguments);
     }
 
     SimpleAvatarFactory.prototype = {
-           createAvatar:function(type){
-               var avatar = null;
-               switch(type) {
-                   case 'Wizard':
-                       avatar = new Wizard();
-                       break;
-                   case 'Warrior':
-                       avatar = new Warrior();
-                       break;
+        // its better to have a settings object to pass up the hierarchy as easily scaled for
+        // adding new parameters at any level.
+
+        createAvatar: function (type, settings, decoration) {
+            var avatar = null;
+            switch (type) {
+                case 'Wizard':
+                    avatar = new classes.Wizard(settings);
+                    break;
+                case 'Warrior':
+                    avatar = new classes.Warrior(settings);
+                    break;
 //                   case 'Dragon':
 //                       avatar = new Dragon();
 //                       break;
 //                   case 'User':
 //                   default:
 //                       avatar = new User();
-               }
+            }
+            //App.base.Interface.ensureImplements(avatar, App.interfaces.user );
 
-               return avatar;
 
-           }
+            return avatar;
+
+        }
     }
+
+    return SimpleAvatarFactory;
+
+})(App.classes)
+
 
 //    var AcmeBicycleShop = function() {};
 //    extend(AcmeBicycleShop, BicycleShop);
@@ -64,12 +74,3 @@ App.SimpleAvatarFactory = (function () {
 //        'timed warranty': TimedWarrantyDecorator
 //    };
 
-
-
-    return SimpleAvatarFactory;
-
-    var factory = new SimpleAvatarFactory();
-    var magician = factory.createAvatar('Magician', decoration );
-
-
-})()

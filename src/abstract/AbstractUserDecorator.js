@@ -15,8 +15,8 @@ App.abstracts.AbstractUserDecorator = (function (Abstract, UserInterface, Interf
         this.user.move()
     }
 
-    get_MAX_LIFESPAN_AGE = function () {
-        this.user.get_MAX_LIFESPAN_AGE();
+    get_MAX_LIFESPAN = function () {
+        this.user.get_MAX_LIFESPAN();
     }
 
     isLivingDead = function () {

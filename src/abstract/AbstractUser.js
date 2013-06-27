@@ -1,13 +1,16 @@
 App.abstracts.AbstractUser = (function (Abstract, utils) {
 
-    function AbstractUser(name, icon, age) {
-        Abstract.call(this);
+    function AbstractUser(settings) {
+
+        //var args = Array.prototype.slice.call(arguments,0)
+        Abstract.call(this, settings);
+
         Object.defineProperty(this, "name", {
-            value: this.makePropertyMandatory(name)
+            value: this.makePropertyMandatory(settings.name)
         })
 
         Object.defineProperty(this, "icon", {
-            value: this.makePropertyMandatory(icon)
+            value: this.makePropertyMandatory(settings.icon)
         })
 
         //writable, configurable and enumerable all FALSE by default when creating property this way
@@ -17,7 +20,7 @@ App.abstracts.AbstractUser = (function (Abstract, utils) {
         })
 
         // writable, configurable and enumerable all TRUE by default when creating property this way
-        this.age = age;
+        this.age = settings.age;
 
         // CONSTANT
         var NORMAL_LIFESPAN = 250;
