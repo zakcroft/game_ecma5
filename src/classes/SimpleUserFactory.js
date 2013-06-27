@@ -1,4 +1,4 @@
-App.classes.SimpleAvatarFactory = (function (classes) {
+App.classes.SimpleAvatarFactory = (function (classes, decorators) {
 
     function SimpleAvatarFactory() {
 
@@ -15,6 +15,7 @@ App.classes.SimpleAvatarFactory = (function (classes) {
         createAvatar: function (type, settings, decoration) {
 
             var avatar = new SimpleAvatarFactory.avatars[type](settings);
+
 
             App.base.Interface.ensureImplements(avatar, App.interfaces.user);
 
@@ -33,7 +34,7 @@ App.classes.SimpleAvatarFactory = (function (classes) {
     // Decorators name to decorator class name mapping.
     SimpleAvatarFactory.decorators = {
 
-//        'master': Master,
+          'master': decorators.masterDecorators
 //        'spirit_invoker': SpiritInvoker,
 //        'tree_talker': TreeTalker,
 //        'teleport': Teleport
@@ -42,7 +43,7 @@ App.classes.SimpleAvatarFactory = (function (classes) {
 
     return SimpleAvatarFactory;
 
-})(App.classes)
+})(App.classes, App.decorators)
 
 
 //    var AcmeBicycleShop = function() {};

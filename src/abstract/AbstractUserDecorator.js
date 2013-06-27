@@ -16,6 +16,7 @@ App.abstracts.AbstractUserDecorator = (function (Abstract, UserInterface, Interf
     function AbstractUserDecorator(user) {
         Interface.ensureImplements(AbstractUserDecorator, UserInterface);
         this.user = user;
+        this.interface = UserInterface;
     }
 
     utils.inheritsEC5(AbstractUserDecorator, Abstract);
@@ -43,8 +44,7 @@ App.abstracts.AbstractUserDecorator = (function (Abstract, UserInterface, Interf
 
 //This is for adding on the fly
 
-//this.bicycle = bicycle;
-//this.interface = Bicycle;
+
 //// Loop through all of the attributes of this.bicycle and create pass-through
 //// methods for any methods that aren't currently implemented.
 //outerloop: for(var key in this.bicycle) {
