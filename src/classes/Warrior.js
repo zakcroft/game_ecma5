@@ -28,4 +28,4 @@ App.classes.Warrior = (function (User, utils) {
 
     return Warrior;
 
-})(App.abstracts.AbstractAvatar, App.utils);
+})(App.abstracts.AbstractUser, App.utils);

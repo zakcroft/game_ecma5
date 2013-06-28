@@ -3,6 +3,8 @@ run App.runtime in console.
 
 This game uses ecm5, inheritance, factory and decorators
 
+
+/* from pro javascript design patterns*/
 There are two main drawbacks to using the decorator pattern.
 
 The first is that any code that relies on type checking will fail if an object has been wrapped with a decorator. It’s true that
