@@ -28,7 +28,7 @@ App.classes.Wizard = (function (User, utils) {
 
     return Wizard;
 
-})(App.classes.User, App.utils);
+})(App.abstracts.AbstractUser, App.utils);
 
 
 

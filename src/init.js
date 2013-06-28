@@ -4,9 +4,10 @@ var factory = new App.classes.SimpleAvatarFactory();
 App.runtime.wizard = factory.createAvatar(
     'Wizard',
     {name: 'Megamus', icon: 'hat', age: '77'}, // mandatory
-    ['master', 'spirit_invoker', 'tree_talker', 'teleport'] // decorators
+    ['master'] // decorators
+    //['master', 'spirit_invoker', 'tree_talker', 'teleport'] // decorators
 );
 
 
-//App.runtime = new App.classes.User();
+//App.runtime = new App.abstracts.AbstractUser();
 //})();

@@ -19,12 +19,24 @@ App.abstracts.AbstractUser = (function (Abstract, utils) {
             value: false, writable: true
         })
 
+        /// Where for these??? decorators?
+//        Object.defineProperties(User, {
+//            "invisibility": { writable: true, enumerable: true, configurable: true, value: null },
+//            "strength": {  writable: true, enumerable: true, configurable: true, value: null }
+//        });
+
         // writable, configurable and enumerable all TRUE by default when creating property this way
         this.age = settings.age;
+
+
 
         // CONSTANT
         var NORMAL_LIFESPAN = 250;
         var EXTENDED_LIFESPAN = 250;
+
+        this.abilities = [];
+        this.possessions = [];
+        this.statuses = []; // can have more than one, like healing, injured, flying
     }
 
     utils.inheritsEC5(AbstractUser, Abstract);
@@ -37,6 +49,18 @@ App.abstracts.AbstractUser = (function (Abstract, utils) {
 //    AbstractUser.prototype.fight = function () {
 //        throw new Error('Unimplemented method in abstract class' + this.type);
 //    }
+
+    AbstractUser.prototype.can = function (ability) {
+        return this.abilities[ability];
+    }
+
+    AbstractUser.prototype.has = function (possesion) {
+        return this.possessions[possesion];
+    }
+
+    AbstractUser.prototype.status = function (state) {
+        return this.statuses[state];
+    }
 
     AbstractUser.prototype.increaseLifeSpan = function () {
         this.age === this.get_EXTENDED_LIFESPAN();
@@ -66,6 +90,15 @@ App.abstracts.AbstractUser = (function (Abstract, utils) {
     return AbstractUser;
 
 })(App.base.Abstract, App.utils);
+
+// interfaces
+App.interfaces.user = new App.base.Interface('User', ['move', 'can', 'has', 'status', 'isLivingDead', 'increaseLifeSpan', 'get_EXTENDED_LIFESPAN']);
+
+
+// statics
+App.abstracts.AbstractUser.isStronger = function (user1, user2) {
+    return user1.strength > user2.strength;
+}
 
 
 // Test this below

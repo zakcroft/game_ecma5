@@ -1,4 +1,4 @@
-App.decorators.MagicDecorator = (function (UserDecorator, utils) {
+App.decorators.MagicDecorator = (function (AbstractUserDecorator, utils) {
 
     function MagicDecorator(user) {
         UserDecorator.call(this, user);
@@ -6,7 +6,7 @@ App.decorators.MagicDecorator = (function (UserDecorator, utils) {
 
     }
 
-    utils.inheritsEC5(MagicDecorator, UserDecorator);
+    utils.inheritsEC5(MagicDecorator, AbstractUserDecorator);
 
     MagicDecorator.prototype.castSpell = function(target) {
         return target.die();
