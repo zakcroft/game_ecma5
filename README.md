@@ -3,7 +3,7 @@ run App.runtime in console.
 This game uses ecm5, inheritance, factory and decorators
 
 
-![ttt](uml/avatars.png)
+![uml](uml/avatars.png)
 
 There are two main drawbacks to using the decorator pattern.
 
