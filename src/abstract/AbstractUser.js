@@ -1,9 +1,9 @@
-App.abstracts.AbstractUser = (function (Abstract, utils) {
+App.abstracts.AbstractUser = (function (Clazz, utils) {
 
     function AbstractUser(settings) {
 
         //var args = Array.prototype.slice.call(arguments,0)
-        Abstract.call(this, settings);
+        Clazz.call(this, settings);
 
         Object.defineProperty(this, "name", {
             value: this.makePropertyMandatory(settings.name)
@@ -39,7 +39,7 @@ App.abstracts.AbstractUser = (function (Abstract, utils) {
         this.statuses = []; // can have more than one, like healing, injured, flying
     }
 
-    utils.inheritsEC5(AbstractUser, Abstract);
+    utils.inheritsEC5(AbstractUser, Clazz);
 
 
     AbstractUser.prototype.move = function () {

@@ -1,19 +1,19 @@
-App.decorators.MagicDecorator = (function (AbstractUserDecorator, utils) {
+App.decorators.SpiritInvoker = (function (AbstractUserDecorator, utils) {
 
-    function MagicDecorator(user) {
-        UserDecorator.call(this, user);
+    function SpiritInvoker(user) {
+        AbstractUserDecorator.call(this, user);
 
 
     }
 
-    utils.inheritsEC5(MagicDecorator, AbstractUserDecorator);
+    utils.inheritsEC5(SpiritInvoker, AbstractUserDecorator);
 
-    MagicDecorator.prototype.castSpell = function(target) {
-        return target.die();
+    SpiritInvoker.prototype.callSpirit = function(spirit) {
+        return spirit.invoke();
     };
 
 
-    return MagicDecorator;
+    return SpiritInvoker;
 
 })(App.abstracts.AbstractUserDecorator, App.utils);
 

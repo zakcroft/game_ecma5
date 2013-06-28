@@ -1,10 +1,10 @@
-App.decorators.MasterDecorator = (function (UserDecorator, utils) {
+App.decorators.MasterDecorator = (function (AbstractUserDecorator, utils) {
 
     function MasterDecorator(user) {
-        UserDecorator.call(this, user);
+        AbstractUserDecorator.call(this, user);
     }
 
-    utils.inheritsEC5(MasterDecorator, UserDecorator);
+    utils.inheritsEC5(MasterDecorator, AbstractUserDecorator);
 
     MasterDecorator.prototype.teach = function(pupil) {
         pupil.giveLesson(lesson);

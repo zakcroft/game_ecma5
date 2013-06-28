@@ -1,12 +1,12 @@
-App.classes.Wizard = (function (User, utils) {
+App.classes.Wizard = (function (AbstractUser, utils) {
 
     function Wizard(settings) {
-        User.call(this, settings);
+        AbstractUser.call(this, settings);
 
         this.init();
     }
 
-    utils.inheritsEC5(Wizard, User);
+    utils.inheritsEC5(Wizard, AbstractUser);
 
     Wizard.prototype.init = function (settings) {
        // _super.init.call(this, settings);
@@ -22,7 +22,7 @@ App.classes.Wizard = (function (User, utils) {
 
           }else{
                // move like a basic user
-              _super.move.call(this);
+              //_super.move.call(this);
           }
     }
 

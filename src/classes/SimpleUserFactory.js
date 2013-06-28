@@ -4,9 +4,6 @@ App.classes.SimpleAvatarFactory = (function (classes, decorators) {
 
     };
 
-    //extend(SimpleAvatarFactory, Avatar); ?? is this avatar user or abstract user???
-
-
     SimpleAvatarFactory.prototype = {
 
         // its better to have a settings object to pass up the hierarchy as easily scaled for
@@ -26,7 +23,7 @@ App.classes.SimpleAvatarFactory = (function (classes, decorators) {
                 avatar = new decorator(avatar, decorations[i]);
             }
 
-            // Check the interface and return the finished object.
+            // Check avatar implements the interface and return the finished object.
             App.base.Interface.ensureImplements(avatar, App.interfaces.user);
 
             return avatar;
@@ -44,8 +41,8 @@ App.classes.SimpleAvatarFactory = (function (classes, decorators) {
     // Decorators name to decorator class name mapping.
     SimpleAvatarFactory.decorators = {
 
-          'master': decorators.MasterDecorator
-//        'spirit_invoker': SpiritInvoker,
+          'master': decorators.MasterDecorator,
+          'spirit_invoker': decorators.SpiritInvoker
 //        'tree_talker': TreeTalker,
 //        'teleport': Teleport
     };

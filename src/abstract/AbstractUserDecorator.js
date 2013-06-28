@@ -1,6 +1,4 @@
-/* abstract class AbstractUserDecorator
- extends Abstract
- implements UserInterface */
+/* abstract class AbstractUserDecorator implements AbstractUserInterface */
 
 //The decorator pattern benefits heavily from the use of interfaces. The most important feature
 //of the decorator is that it can be used in place of its component.
@@ -14,13 +12,15 @@
 App.abstracts.AbstractUserDecorator = (function (Abstract, UserInterface, Interface, utils) {
 
     function AbstractUserDecorator(user) {
+
         this.user = user;
+        this.interface = UserInterface;
 
         // Loop through all of the attributes of this.bicycle and create pass-through
         // methods for any methods that aren't currently implemented.
-        outerloop: for (var key in this.bicycle) {
+        outerloop: for (var key in this.user) {
             // Ensure that the property is a function.
-            if (typeof this.bicycle[key] !== 'function') {
+            if (typeof this.user[key] !== 'function') {
                 continue outerloop;
             }
         // Ensure that the method isn't in the interface.
@@ -33,15 +33,12 @@ App.abstracts.AbstractUserDecorator = (function (Abstract, UserInterface, Interf
             var that = this;
             (function (methodName) {
                 that[methodName] = function () {
-                    return that.bicycle[methodName]();
+                    return that.user[methodName]();
                 };
             })(key);
         }
 
     }
-
-    // extending so all decorators have base clazz functionality
-    utils.inheritsEC5(AbstractUserDecorator, Abstract);
 
     AbstractUserDecorator.prototype.move = function () {
         this.user.move()
@@ -80,28 +77,4 @@ App.abstracts.AbstractUserDecorator = (function (Abstract, UserInterface, Interf
 })(App.base.Abstract, App.interfaces.user, App.base.Interface, App.utils);
 
 
-//This is for adding on the fly
-
-
-//// Loop through all of the attributes of this.bicycle and create pass-through
-//// methods for any methods that aren't currently implemented.
-//outerloop: for(var key in this.bicycle) {
-//// Ensure that the property is a function.
-//    if(typeof this.bicycle[key] !== 'function') {
-//        continue outerloop;
-//    }
-//    CHAPTER 12 ■ THE DECORATOR PATTERN
-//// Ensure that the method isn't in the interface.
-//    for(var i = 0, len = this.interface.methods.length; i < len; i++) {
-//        if(key === this.interface.methods[i]) {
-//            continue outerloop;
-//        }
-//    }
-//// Add the new method.
-//    var that = this;
-//    (function(methodName) {
-//        that[methodName] = function() {
-//            return that.bicycle[methodName]();
-//        };
-//    })(key);
 
