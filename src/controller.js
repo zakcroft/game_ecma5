@@ -1,25 +1,48 @@
+App.controller = (function(avatarFactory){
+
+    function Controller(){
+        this.factory = new avatarFactory();
+        this.avatars = [];
+        this.id = 0;
+        this.init();
+    }
+
+    Controller.prototype = {
+
+        init: function () {
+              this.createPlayers();
+        },
 
 
+        createPlayers:function(){
+            this.avatars[this.getNextId()] = this.factory.createAvatar('Wizard',
+                {name: 'Megamus', icon: 'hat', age: '77'}, // mandatory
+                ['master', 'spirit_invoker']) // decorators
+                //['master', 'spirit_invoker', 'tree_talker', 'teleport'] // decorators
+        },
 
+        movePlayer: function (avatar) {
 
-//An abstract (base) class forms an is-a relationship and allows for polymorphism.
+            utils.isType(avatar, AbstractAvatar); // check type as must have move method for polymorphism
 
-// so fire move?
-register : function( user ) {
+            if (this.avatars[avatar]) {
 
-        utils.isType(user, AbstractUser);
+                avatar.move();
 
-        if(user.id && !this.users[user.id]) {
+            } else {
+                throw new Error(avatar.type+" avatar does not exist");
+            }
+        },
 
-            this.users[user.id] = lightbox;
-            //this.fire('UserRegistered', user);
-
-        } else {
-            throw new Error("Id is invalid or duplicated");
+        getNextId:function(){
+                 return this.id++;
         }
+    }
 
+    return Controller;
 
-}
+})(App.classes.SimpleAvatarFactory);
+
 
 
 

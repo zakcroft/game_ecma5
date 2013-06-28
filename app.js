@@ -6,6 +6,7 @@
         classes:{},
         decorators:{},
         utils:{},
+        controller:{},
         runtime:{}
     });
 

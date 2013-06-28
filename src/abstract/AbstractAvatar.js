@@ -1,6 +1,6 @@
-App.abstracts.AbstractUser = (function (Clazz, utils) {
+App.abstracts.AbstractAvatar = (function (Clazz, utils) {
 
-    function AbstractUser(settings) {
+    function AbstractAvatar(settings) {
 
         //var args = Array.prototype.slice.call(arguments,0)
         Clazz.call(this, settings);
@@ -39,30 +39,30 @@ App.abstracts.AbstractUser = (function (Clazz, utils) {
         this.statuses = []; // can have more than one, like healing, injured, flying
     }
 
-    utils.inheritsEC5(AbstractUser, Clazz);
+    utils.inheritsEC5(AbstractAvatar, Clazz);
 
 
-    AbstractUser.prototype.move = function () {
+    AbstractAvatar.prototype.move = function () {
         throw new Error('Unimplemented method in abstract class' + this.type);
     }
 
-//    AbstractUser.prototype.fight = function () {
+//    AbstractAvatar.prototype.fight = function () {
 //        throw new Error('Unimplemented method in abstract class' + this.type);
 //    }
 
-    AbstractUser.prototype.can = function (ability) {
+    AbstractAvatar.prototype.can = function (ability) {
         return this.abilities[ability];
     }
 
-    AbstractUser.prototype.has = function (possesion) {
+    AbstractAvatar.prototype.has = function (possesion) {
         return this.possessions[possesion];
     }
 
-    AbstractUser.prototype.status = function (state) {
+    AbstractAvatar.prototype.status = function (state) {
         return this.statuses[state];
     }
 
-    AbstractUser.prototype.increaseLifeSpan = function () {
+    AbstractAvatar.prototype.increaseLifeSpan = function () {
         this.age === this.get_EXTENDED_LIFESPAN();
 
         // this cannot be changed back once granted
@@ -71,7 +71,7 @@ App.abstracts.AbstractUser = (function (Clazz, utils) {
         })
     }
 
-    AbstractUser.prototype.isLivingDead = function(){
+    AbstractAvatar.prototype.isLivingDead = function(){
         if(this.lifeSpanExtended) {
             return this.age > EXTENDED_LIFESPAN;
         } else{
@@ -79,27 +79,30 @@ App.abstracts.AbstractUser = (function (Clazz, utils) {
         }
     }
 
-    AbstractUser.prototype.get_NORMAL_LIFESPAN = function () {
+    AbstractAvatar.prototype.get_NORMAL_LIFESPAN = function () {
         return this.get_NORMAL_LIFESPAN();
     }
 
-    AbstractUser.prototype.get_EXTENDED_LIFESPAN = function () {
+    AbstractAvatar.prototype.get_EXTENDED_LIFESPAN = function () {
         return this.get_EXTENDED_LIFESPAN();
     }
 
-    return AbstractUser;
+    return AbstractAvatar;
 
 })(App.base.Abstract, App.utils);
 
 // interfaces
-App.interfaces.user = new App.base.Interface('User', ['move', 'can', 'has', 'status', 'isLivingDead', 'increaseLifeSpan', 'get_EXTENDED_LIFESPAN']);
+App.interfaces.user = new App.base.Interface('User',
+    ['move', 'can', 'has', 'status', 'isLivingDead',
+        'increaseLifeSpan', 'get_EXTENDED_LIFESPAN',
+        "get_MAX_LIFESPAN", "get_NORMAL_LIFESPAN",
+        "init", "makePropertyMandatory", "throwError"]);
 
 
 // statics
-App.abstracts.AbstractUser.isStronger = function (user1, user2) {
+App.abstracts.AbstractAvatar.isStronger = function (user1, user2) {
     return user1.strength > user2.strength;
 }
-
 
 // Test this below
 //x = new App.User('asdasd','asdsa')

@@ -42,7 +42,7 @@ App.classes.SimpleAvatarFactory = (function (classes, decorators) {
     SimpleAvatarFactory.decorators = {
 
           'master': decorators.MasterDecorator,
-          'spirit_invoker': decorators.SpiritInvoker
+          'spirit_invoker': decorators.SpiritInvokerDecorator
 //        'tree_talker': TreeTalker,
 //        'teleport': Teleport
     };

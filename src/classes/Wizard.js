@@ -1,12 +1,12 @@
-App.classes.Wizard = (function (AbstractUser, utils) {
+App.classes.Wizard = (function (AbstractAvatar, utils) {
 
     function Wizard(settings) {
-        AbstractUser.call(this, settings);
+        AbstractAvatar.call(this, settings);
 
         this.init();
     }
 
-    utils.inheritsEC5(Wizard, AbstractUser);
+    utils.inheritsEC5(Wizard, AbstractAvatar);
 
     Wizard.prototype.init = function (settings) {
        // _super.init.call(this, settings);
@@ -28,7 +28,7 @@ App.classes.Wizard = (function (AbstractUser, utils) {
 
     return Wizard;
 
-})(App.abstracts.AbstractUser, App.utils);
+})(App.abstracts.AbstractAvatar, App.utils);
 
 
 
