@@ -1,7 +1,7 @@
-App.controller = (function(avatarFactory){
+App.controller = (function(AvatarFactory, AbstractAvatar, AbstractAvatarDecorator, utils){
 
     function Controller(){
-        this.factory = new avatarFactory();
+        this.factory = new AvatarFactory();
         this.avatars = [];
         this.avatarCount= 0;
         this.init();
@@ -10,7 +10,8 @@ App.controller = (function(avatarFactory){
     Controller.prototype = {
 
         init: function () {
-              this.createPlayers();
+             this.createPlayers();
+             this.movePlayer(this.avatars[0]);// test
         },
 
 
@@ -22,13 +23,13 @@ App.controller = (function(avatarFactory){
 
 
             this.avatars[wizard.id = this.getNextId()] = wizard
+
         },
 
         movePlayer: function (avatar) {
 
-            utils.isType(avatar, AbstractAvatar); // check type as must have move method for polymorphism
-
-            if (this.avatars[avatar.id]) {
+            // check type as must have move method for polymorphism
+            if (utils.isType(avatar, AbstractAvatarDecorator) && this.avatars[avatar.id]) {
 
                 avatar.move();
 
@@ -44,7 +45,7 @@ App.controller = (function(avatarFactory){
 
     return Controller;
 
-})(App.classes.SimpleAvatarFactory);
+})(App.classes.SimpleAvatarFactory, App.abstracts.AbstractAvatar, App.abstracts.AbstractAvatarDecorator, App.utils);
 
 
 

@@ -26,7 +26,7 @@ App.abstracts.AbstractAvatar = (function (Clazz, utils) {
 //        });
 
         // writable, configurable and enumerable all TRUE by default when creating property this way
-        this.age = settings.age;
+        this.age = this.makePropertyMandatory(settings.age);
 
 
 
