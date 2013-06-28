@@ -39,7 +39,7 @@ App.abstracts.AbstractUserDecorator = (function (Abstract, UserInterface, Interf
 
     return AbstractUserDecorator;
 
-})(App.base.Abstract, App.interfaces.User, App.base.Interface, App.utils);
+})(App.base.Abstract, App.interfaces.user, App.base.Interface, App.utils);
 
 
 //This is for adding on the fly
