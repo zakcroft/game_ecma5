@@ -2,8 +2,8 @@ run App.runtime in console.
 
 This game uses ecm5, inheritance, factory and decorators
 
-![alt tag](https://github.com/zakcroft/game_ecma5/blob/master/uml/avatars.png)
-![Chrome Flags](uml/avatars.png)
+
+![ttt](uml/avatars.png)
 
 There are two main drawbacks to using the decorator pattern.
 
