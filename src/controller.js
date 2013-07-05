@@ -3,7 +3,6 @@ App.controller = (function(AvatarFactory, AbstractAvatar, AbstractAvatarDecorato
     function Controller(){
         this.factory = new AvatarFactory();
         this.avatars = [];
-        this.avatarCount= 0;
         this.init();
     }
 
@@ -39,7 +38,11 @@ App.controller = (function(AvatarFactory, AbstractAvatar, AbstractAvatarDecorato
         },
 
         getNextId:function(){
-            return this.avatarCount++;
+            var count = 0;
+            this.getNextId = function(){
+                return count++;
+            }
+            return count++;
         }
     }
 

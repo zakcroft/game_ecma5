@@ -23,7 +23,8 @@ App.abstracts.AbstractAvatarDecorator = (function (Abstract, UserInterface, Inte
             if (typeof this.user[key] !== 'function' || UserInterface.methods.indexOf(key) !== -1) continue outerloop;
 
             // Add the new method.
-            this[key] = this.user[key];
+            Object.getPrototypeOf(this)[key] = this.user[key];
+            //this.constructor.prototype[key] = this.user[key];
 
         }
     }

@@ -1,4 +1,4 @@
-App.classes.SimpleAvatarFactory = (function (classes, decorators) {
+App.classes.SimpleAvatarFactory = (function (classes, decorators, AbstractAvatar) {
     "use strict"
     function SimpleAvatarFactory() {
 
@@ -11,7 +11,15 @@ App.classes.SimpleAvatarFactory = (function (classes, decorators) {
 
         createAvatar: function (type, settings, decorations) {
 
-            var avatar = new SimpleAvatarFactory.avatars[type](settings);
+            var avatar = SimpleAvatarFactory.avatars[type];
+
+            if(utils.isType(avatar, AbstractAvatar)) {
+                avatar = avatar(settings);
+            } else {
+                throw Error('avatar must extend Abstract Avatar')
+            }
+
+
 
             // Iterate through the options and instantiate decorators.
             for (var i = 0, len = decorations.length; i < len; i++) {
@@ -50,7 +58,7 @@ App.classes.SimpleAvatarFactory = (function (classes, decorators) {
 
     return SimpleAvatarFactory;
 
-})(App.classes, App.decorators)
+})(App.classes, App.decorators, App.abstracts.AbstractAvatar)
 
 
 
