@@ -1,3 +1,5 @@
+This is an exploration into design patterns with ecma5
+
 run App.runtime in console.
 
 This game uses ecm5, inheritance, factory and decorators
