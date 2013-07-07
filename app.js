@@ -7,6 +7,7 @@
         decorators:{},
         utils:{},
         controller:{},
-        runtime:{}
+        runtime:{}  '' +
+            'asdasd'
     });
 
